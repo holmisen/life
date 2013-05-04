@@ -217,7 +217,10 @@ void main (int argc, char *argv[])
 /*      SDL_Delay(50);  */
 
       delay = (50 + ticks) - SDL_GetTicks () ;
-      if ( delay > 50 ) { fprintf(stderr, "Delay calculation is defunct\n"); exit(-1) ; }
+      if ( delay > 50 ) {
+	fprintf(stderr, "Delay calculation is defunct\n");
+	delay = 0;
+      }
       else {
 	SDL_Delay( delay );
       }
