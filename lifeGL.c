@@ -37,8 +37,6 @@ inline int iE (int x) { return ((x+1) % WIDTH ); }
 
 static void draw_cell (int x , int y)
 {
-   static Uint32 col;
-   
    switch (space[dst][x][y]) {
    case On    : glColor3ub(0xFF,0xFF,0xFF) ; break;
    case Dying : glColor3ub(0xAA,0xAA,0xAA) ; break;
