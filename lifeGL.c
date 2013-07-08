@@ -206,6 +206,10 @@ void main (int argc, char *argv[])
    glMatrixMode(GL_PROJECTION);
    glLoadIdentity();
    gluOrtho2D(0, WIDTH*SIZE, HEIGHT*SIZE, 0);
+
+   glMatrixMode(GL_MODELVIEW);
+   glLoadIdentity();
+   glClear(GL_COLOR_BUFFER_BIT);
    
    
    /* Random start space */
@@ -236,14 +240,7 @@ void main (int argc, char *argv[])
       }
 
       delay = (50 + ticks) - SDL_GetTicks () ;
-      if ( delay > 50 ) {
-	fprintf(stderr, "Delay calculation is defunct\n");
-	delay = 0;
-      }
-      else {
-	SDL_Delay( delay );
-      }
+      if ( delay < 50 ) SDL_Delay( delay );
       ticks = SDL_GetTicks () ;
-      
    }
 }
